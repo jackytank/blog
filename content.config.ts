@@ -2,13 +2,13 @@ import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 
 export default defineContentConfig({
   collections: {
-    content: defineCollection({
+    myblog: defineCollection({
       type: 'page',
-      source: 'blog/*.md',
+      source: 'blogs/*.md',
       schema: z.object({
         title: z.string(),
-        date: z.coerce.date(),
         description: z.string().optional(),
+        date: z.coerce.date(),
         tags: z.array(z.enum([
           'mdx', 
           'guide', 
@@ -17,6 +17,9 @@ export default defineContentConfig({
           'nuxt',
           'tutorial',
         ])).optional(),
+        cover: z.string().optional(),
+        published: z.boolean().default(false),
+        author: z.string().optional(),
       })
     })
   }

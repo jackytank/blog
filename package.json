@@ -12,7 +12,7 @@
   "dependencies": {
     "@ant-design-vue/nuxt": "^1.4.6",
     "@nuxt/content": "^3.5.1",
-    "mdx": "^0.3.1",
+    "giscus": "^1.6.0",
     "nuxt": "^3.17.4",
     "vue": "^3.5.16",
     "vue-router": "^4.5.1"
