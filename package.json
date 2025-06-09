@@ -12,6 +12,9 @@
   "dependencies": {
     "@ant-design-vue/nuxt": "^1.4.6",
     "@nuxt/content": "^3.5.1",
+    "@nuxtjs/color-mode": "3.5.2",
+    "@vueuse/nuxt": "13.3.0",
+    "ant-design-vue": "^4.2.6",
     "giscus": "^1.6.0",
     "nuxt": "^3.17.4",
     "vue": "^3.5.16",
