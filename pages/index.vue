@@ -1,17 +1,18 @@
 <script setup lang="ts">
-const { data: allPosts } = await useAsyncData("allPosts", () => {
-    return queryCollection("myblog")
-        .where("published", "=", true)
-        .order("date", "DESC")
-        .all();
-});
+useHead({
+  title: 'Home',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Welcome Tri To Blog, a place to share knowledge and insights on various topics.',
+    },
+  ],
+})
 </script>
 
 <template>
-    <li v-for="post in allPosts" :key="post.id">
-        <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
-        <p class="text-gray-500 text-xs">{{ post.description }}</p>
-    </li>
+    <h1>This is home page</h1>
 </template>
 
 <style scoped>

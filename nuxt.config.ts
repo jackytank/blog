@@ -16,6 +16,8 @@ export default defineNuxtConfig({
     'ant-design-vue/dist/reset.css',
   ],
   colorMode: {
-    classSuffix: ''
-  }
-})
+    classSuffix: '',
+    preference: 'light',
+    fallback: 'light',
+  },
+});

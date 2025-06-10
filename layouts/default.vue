@@ -1,54 +1,59 @@
 <script setup lang="ts">
+const colorMode = useColorMode();
+
+const onClick = (val: string) => {
+    colorMode.preference = val;
+};
+
 const route = useRoute();
+function isActive(path: string) {
+    return route.path.startsWith(path);
+}
 </script>
 
 <template>
-    <a-layout class="layout">
-        <a-layout-header>
-            <div class="logo">Tri To Blog</div>
-            <a-menu theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
-                <a-menu-item key="1">
-                    <NuxtLink to="/">Home</NuxtLink>
-                </a-menu-item>
-                <a-menu-item key="2">
-                    <NuxtLink to="/tags">Tags</NuxtLink>
-                </a-menu-item>
-                <!-- Add more nav items if needed -->
-            </a-menu>
+    <a-layout class="min-h-screen">
+        <!-- Header -->
+        <a-layout-header class="bg-white shadow-md p-0 dark:bg-gray-800">
+            <div class="max-w-6xl mx-auto flex justify-between items-center h-16 px-6">
+                <h1 class="text-2xl font-bold m-0 text-blue-500 dark:text-blue-400">
+                    <NuxtLink to="/" :class="{ underline: route.path === '/' }">
+                        Tri To Blog
+                    </NuxtLink>
+                </h1>
+                <a-menu mode="horizontal" :style="{ lineHeight: '64px', backgroundColor: 'transparent', border: 'none' }"
+                    class="flex-1 justify-center dark:text-white">
+                    <a-menu-item key="1" class="dark:text-white">
+                        <NuxtLink to="/blogs">Blogs</NuxtLink>
+                    </a-menu-item>
+                    <a-menu-item key="2" class="dark:text-white">
+                        <NuxtLink to="/about">About me</NuxtLink>
+                    </a-menu-item>
+                    <a-menu-item key="3">
+                        <a-switch class="text-lg" :checked="colorMode.value === 'dark'" @change="(checked, e) => onClick(checked ? 'dark' : 'light')">
+                            <template #checkedChildren><check-outlined /></template>
+                            <template #unCheckedChildren><close-outlined /></template>
+                        </a-switch>
+                        <!-- <ClientOnly>
+                    </ClientOnly> -->
+                    </a-menu-item>
+                </a-menu>
+            </div>
         </a-layout-header>
-        <a-layout-content style="padding: 0 24px; margin-top: 24px;">
-            <a-breadcrumb style="margin: 16px 0;">
-                <a-breadcrumb-item>Home</a-breadcrumb-item>
-                <!-- dynamically generated breadcrumbs
-                example of path: /blogs/microservices-architecture -->
-                <a-breadcrumb-item v-for="(crumb, index) in route.path.split('/').filter(Boolean)" :key="index">
-                    {{ crumb }}
-                </a-breadcrumb-item>
 
-            </a-breadcrumb>
-            <div :style="{ background: '#fff', padding: '24px', minHeight: 'calc(100vh - 250px)' }">
-                <slot />
+        <!-- Main Content -->
+        <a-layout-content class="bg-gray-50 dark:bg-gray-900 transition-colors">
+            <div class="max-w-6xl mx-auto px-6 py-6">
+                <div class="min-h-[calc(100vh-250px)]">
+                    <slot />
+                </div>
             </div>
         </a-layout-content>
-        <a-layout-footer style="text-align: center">
+        <a-layout-footer
+            class="text-center bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 py-6 transition-colors border-t border-gray-200 dark:border-gray-700">
             Tri To Blog ©{{ new Date().getFullYear() }} Created with Nuxt 3 & Ant Design Vue
         </a-layout-footer>
     </a-layout>
 </template>
 
-<style scoped>
-.logo {
-    width: 120px;
-    height: 31px;
-    float: left;
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.ant-menu-item a {
-    color: inherit;
-    /* Make NuxtLink inherit color from menu item */
-    text-decoration: none;
-}
-</style>
+<style scoped></style>
