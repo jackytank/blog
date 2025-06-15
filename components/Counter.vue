@@ -8,7 +8,7 @@ const count = ref(props.initial || 0);
 <template>
   <div class="border rounded p-4 mb-4">
     <p class="mb-2">Counter: {{ count }}</p>
-    <a-button @click="count++">Increment</a-button>
+    <button @click="count++">Increment</button>
   </div>
 </template>
 
