@@ -10,8 +10,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   css: [
-    '@/assets/css/main.css',
+    '~/assets/css/main.css',
   ],
+  content: {
+    experimental: { nativeSqlite: true },
+  },
   colorMode: {
     classSuffix: '',
     preference: 'system',
