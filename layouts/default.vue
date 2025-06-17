@@ -33,17 +33,14 @@
                     <!-- Dark mode toggle & Menu memu buttion -->
                     <div class="flex items-center space-x-4">
                         <!-- Dark mode toggle -->
-                         <button 
-                         class="p-2 rounded-lg"
-                         >
-                        
-                         </button>
+                        <button class="p-2 rounded-lg">
+                        </button>
                     </div>
                 </div>
             </div>
         </header>
+        <slot />
     </div>
-    <slot />
 </template>
 
 <style scoped>
