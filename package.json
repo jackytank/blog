@@ -19,5 +19,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@nuxt/icon": "^1.13.0"
+  }
 }
