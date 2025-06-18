@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@vueuse/nuxt',
-    '@nuxt/icon',
     '@nuxtjs/color-mode',
   ],
   compatibilityDate: '2025-05-15',
@@ -14,7 +13,7 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
   content: {
-    experimental: { nativeSqlite: true },
+    experimental: { sqliteConnector: 'native' },
   },
   colorMode: {
     classSuffix: '',
