@@ -46,10 +46,9 @@ watch(
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-8">
-                        <NuxtLink v-for="item in appCfg.myConst.layout.header.navItems" :key="item.to" :to="item.to" :class="{ underline: isActive('/about') }"
-                            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 
-                            dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
-                            {{ item.label }}
+                        <NuxtLink v-for="(vTo, kTitle) in appCfg.myConst.layout.header.navItems" :key="vTo" :to="vTo" :class="{ underline: isActive(vTo) }"
+                            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
+                            {{ kTitle }}
                         </NuxtLink>
                     </nav>
 
@@ -59,15 +58,15 @@ watch(
                             <!-- Dark mode toggle -->
                             <button @click="colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'"
                                 class="ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4 ">
+                                <!-- icon light -->
                                 <svg class="text-gray-300 hover:text-gray-900 dark:hover:text-gray-100" v-show="colorMode.preference === 'dark'"
-                                    xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default"
-                                    viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
+                                    xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default" viewBox="0 0 24 24">
                                     <path fill="currentColor"
                                         d="m3.55 19.09l1.41 1.41l1.8-1.79l-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71l1.8 1.79l1.41-1.41l-1.79-1.8M20.45 5l-1.41-1.4l-1.8 1.79l1.42 1.42M13 1h-2v3h2M6.76 5.39L4.96 3.6L3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2" />
                                 </svg>
+                                <!-- icon dark -->
                                 <svg class="hover:text-gray-500 dark:hover:text-gray-900" v-show="colorMode.preference === 'light'"
-                                    xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default"
-                                    viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
+                                    xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="M2 12a10 10 0 0 0 13 9.54a10 10 0 0 1 0-19.08A10 10 0 0 0 2 12" />
                                 </svg>
                             </button>

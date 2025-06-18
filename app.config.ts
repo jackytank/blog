@@ -7,20 +7,14 @@ export default defineAppConfig({
     layout: {
       header: {
         title: 'Jackytank',
-        navItems: [
-          {
-            label: 'Blogs',
-            to: '/blogs'
-          },
-          {
-            label: 'About',
-            to: '/about'
-          }
-        ]
+        navItems: {
+          'Blogs': '/blogs',
+          'About': '/about'
+        }
       },
     },
     iconSizes: {
       default: '24'
     }
   }
-})
+});
