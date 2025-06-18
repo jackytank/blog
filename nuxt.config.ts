@@ -4,9 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    '@nuxtjs/color-mode',
     '@vueuse/nuxt',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '@nuxtjs/color-mode',
   ],
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },

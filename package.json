@@ -1,15 +1,10 @@
 {
   "name": "nuxt-app",
   "dependencies": {
-    "@nuxt/content": "3.6.0",
-    "@nuxtjs/color-mode": "3.5.2",
     "@tailwindcss/vite": "^4.1.10",
     "@vueuse/nuxt": "13.3.0",
     "giscus": "^1.6.0",
-    "nuxt": "3.17.5",
-    "tailwindcss": "^4.1.10",
-    "vue": "^3.5.16",
-    "vue-router": "^4.5.1"
+    "tailwindcss": "^4.1.10"
   },
   "private": true,
   "scripts": {
@@ -21,6 +16,9 @@
   },
   "type": "module",
   "devDependencies": {
-    "@nuxt/icon": "^1.13.0"
+    "@nuxt/content": "^3.6.0",
+    "@nuxt/icon": "^1.13.0",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "nuxt": "^3.17.5"
   }
 }

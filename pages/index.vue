@@ -12,7 +12,7 @@ useHead({
 </script>
 
 <template>
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div class="min-h-screen bg-white flex items-center justify-center">
         <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
             <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">
                 Homepage
