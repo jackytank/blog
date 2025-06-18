@@ -104,7 +104,7 @@ watch(
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="text-center">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        © {{ new Date().getFullYear() }} {{ appCfg.myConst.layout.header.title }}. All rights reserved.
+                        © {{ new Date().getFullYear() }} {{ appCfg.myConst.layout.header.title }}. All rights reserved my buttstock! I stole other people code anyway! Or am I? Hmm....
                     </p>
                 </div>
             </div>

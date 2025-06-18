@@ -6,7 +6,7 @@ export default defineAppConfig({
   myConst: {
     layout: {
       header: {
-        title: 'Tri To Blog',
+        title: 'Jackytank',
         navItems: [
           {
             label: 'Blogs',
