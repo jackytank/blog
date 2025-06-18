@@ -6,6 +6,7 @@ export default defineAppConfig({
   myConst: {
     layout: {
       header: {
+        title: 'Tri To Blog',
         navItems: [
           {
             label: 'Blogs',
@@ -17,9 +18,6 @@ export default defineAppConfig({
           }
         ]
       },
-      footer: {
-        title: 'Tri To Blog. All rights reserved.'
-      }
     },
     iconSizes: {
       default: '24'

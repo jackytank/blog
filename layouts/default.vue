@@ -4,10 +4,6 @@ const mobileMenuOpen = ref(false);
 const route = useRoute();
 const appCfg = useAppConfig();
 
-const setMode = (mode: 'dark' | 'light') => {
-    colorMode.preference = mode;
-};
-
 const toggleMobileMenu = () => {
     mobileMenuOpen.value = !mobileMenuOpen.value;
 };
@@ -44,7 +40,7 @@ watch(
                     <div class="flex-shrink-0">
                         <NuxtLink to="/" class="text-xl font-bold text-gray-900 dark:text-white 
                             hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            Tri To Blog
+                            {{ appCfg.myConst.layout.header.title }}
                         </NuxtLink>
                     </div>
 
@@ -62,13 +58,15 @@ watch(
                         <ClientOnly>
                             <!-- Dark mode toggle -->
                             <button @click="colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'"
-                                class="ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4 hover:text-gray-900 dark:hover:text-gray-100">
-                                <svg v-show="colorMode.preference === 'dark'" xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default"
+                                class="ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4 ">
+                                <svg class="text-gray-300 hover:text-gray-900 dark:hover:text-gray-100" v-show="colorMode.preference === 'dark'"
+                                    xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default"
                                     viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
                                     <path fill="currentColor"
                                         d="m3.55 19.09l1.41 1.41l1.8-1.79l-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71l1.8 1.79l1.41-1.41l-1.79-1.8M20.45 5l-1.41-1.4l-1.8 1.79l1.42 1.42M13 1h-2v3h2M6.76 5.39L4.96 3.6L3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2" />
                                 </svg>
-                                <svg v-show="colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default"
+                                <svg class="hover:text-gray-500 dark:hover:text-gray-900" v-show="colorMode.preference === 'light'"
+                                    xmlns="http://www.w3.org/2000/svg" :size="appCfg.myConst.iconSizes.default"
                                     viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
                                     <path fill="currentColor" d="M2 12a10 10 0 0 0 13 9.54a10 10 0 0 1 0-19.08A10 10 0 0 0 2 12" />
                                 </svg>
@@ -81,7 +79,7 @@ watch(
 
                         <!-- Mobile menu button -->
                         <button @click="toggleMobileMenu"
-                            class="md-hidden p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
+                            class="md-hidden p-2 rounded-lg text-gray-300 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
                             <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
@@ -97,7 +95,7 @@ watch(
 
         <!-- Main content -->
         <main class="flex-1">
-            <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-x border-gray-300 dark:border-gray-100">
+            <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 dark:text-gray-100 border-x border-gray-300 dark:border-gray-100">
                 <slot />
             </div>
         </main>
@@ -106,7 +104,7 @@ watch(
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="text-center">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        © {{ new Date().getFullYear() }} {{ appCfg.myConst.layout.footer.title }}
+                        © {{ new Date().getFullYear() }} {{ appCfg.myConst.layout.header.title }}. All rights reserved.
                     </p>
                 </div>
             </div>
