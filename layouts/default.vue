@@ -31,7 +31,7 @@ watch(
         <!-- Header -->
         <header
             class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
-            <div class="max-w-4xl mx-auto px-2 sm:px-4 lg:px-6">
+            <div class="max-w-4xl mx-auto pl-6 sm:pl-4 lg:pl-6">
                 <div class="flex justify-between items-center h-16">
                     <!-- Logo/brand -->
                     <div class="flex-shrink-0">
@@ -43,10 +43,10 @@ watch(
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-8" aria-label="Primary navigation">
-                        <NuxtLink v-for="(vTo, kTitle) in appCfg.cfg.layout.header.navItems" :key="vTo" :to="vTo"
-                            :class="{ underline: isActive(vTo) }"
+                        <NuxtLink v-for="(vTitle, kTo) in appCfg.cfg.layout.header.navItems" :key="kTo" :to="kTo"
+                            :class="{ underline: isActive(kTo) }"
                             class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
-                            {{ kTitle }}
+                            {{ vTitle }}
                         </NuxtLink>
                     </nav>
 
@@ -114,6 +114,7 @@ watch(
                     <div class="flex justify-end mb-4">
                         <button @click="closeMobileMenu"
                             class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
+                            <!-- Icon Close -->
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
@@ -121,10 +122,11 @@ watch(
                         </button>
                     </div>
                     <nav class="flex flex-col space-y-4" aria-label="Mobile navigation">
-                        <NuxtLink v-for="(vTo, kTitle) in appCfg.cfg.layout.header.navItems" :key="vTo" :to="vTo"
-                            @click="closeMobileMenu" :class="{ 'bg-gray-100 dark:bg-gray-700': isActive(vTo) }"
+                        <!-- Mobile Vertical Navigation -->
+                        <NuxtLink v-for="(vTitle, kTo) in appCfg.cfg.layout.header.navItems" :key="kTo" :to="kTo"
+                            @click="closeMobileMenu" :class="{ 'bg-gray-100 dark:bg-gray-700': isActive(kTo) }"
                             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            {{ kTitle }}
+                            {{ vTitle }}
                         </NuxtLink>
                     </nav>
                 </div>
@@ -134,7 +136,7 @@ watch(
         <!-- Main content -->
         <main class="flex-1">
             <div
-                class="min-h-screen max-w-4xl mx-auto px-2 sm:px-4 lg:px-6 py-8 dark:text-gray-100 border-x border-gray-300 dark:border-gray-100">
+                class="min-h-screen max-w-4xl mx-auto px-2 sm:px-4 lg:px-6 py-8 dark:text-gray-100 border-x border-gray-200 dark:border-gray-100">
                 <slot />
             </div>
         </main>

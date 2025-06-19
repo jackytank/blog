@@ -18,12 +18,12 @@ useHead({
             <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">
                 Hi, I am sure you're asking yourself: Can I afford to trust this author and read his blog?
             </h1>
-            <p class="text-gray-600 text-center">
+            <p class="text-gray-400 text-center">
                 But the true question you must ask is...Can I afford not to?
             </p>
             <div class="mt-6">
-                <button class="btn-primary w-full text-gray-500 hover:text-blue-500 underline underline-offset-4">
-                    <NuxtLink to="/blogs">Read now before WW3 start!</NuxtLink>
+                <button class="btn-primary w-full text-gray-400 hover:text-blue-500 underline underline-offset-4">
+                    <NuxtLink to="/blogs">Read</NuxtLink>
                 </button>
             </div>
         </div>

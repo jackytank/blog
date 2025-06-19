@@ -8,8 +8,8 @@ export default defineAppConfig({
             header: {
                 title: 'jackytank',
                 navItems: {
-                    'Blogs': '/blogs',
-                    'About': '/about'
+                    '/blogs': 'Blogs',
+                    '/about': 'About'
                 }
             },
         },

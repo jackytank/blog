@@ -2,7 +2,6 @@
   "name": "nuxt-app",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
-    "@vueuse/nuxt": "13.3.0",
     "giscus": "^1.6.0",
     "tailwindcss": "^4.1.10"
   },
@@ -17,7 +16,11 @@
   "type": "module",
   "devDependencies": {
     "@nuxt/content": "^3.6.0",
+    "@nuxt/eslint": "1.4.1",
     "@nuxtjs/color-mode": "^3.5.2",
-    "nuxt": "^3.17.5"
+    "@vueuse/nuxt": "13.4.0",
+    "eslint": "^9.0.0",
+    "nuxt": "^3.17.5",
+    "vue": "^3.5.0"
   }
 }
