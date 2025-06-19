@@ -16,10 +16,6 @@ const isActive = (path: string) => {
     return route.path?.startsWith(path);
 };
 
-watchEffect(() => {
-    console.log("colorMode", colorMode.value);
-});
-
 // Close mobile menu when route change
 watch(
     () => route.path,
@@ -41,13 +37,13 @@ watch(
                     <div class="flex-shrink-0">
                         <NuxtLink to="/"
                             class="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            {{ appCfg.myConst.layout.header.title }}
+                            {{ appCfg.cfg.layout.header.title }}
                         </NuxtLink>
                     </div>
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-8" aria-label="Primary navigation">
-                        <NuxtLink v-for="(vTo, kTitle) in appCfg.myConst.layout.header.navItems" :key="vTo" :to="vTo"
+                        <NuxtLink v-for="(vTo, kTitle) in appCfg.cfg.layout.header.navItems" :key="vTo" :to="vTo"
                             :class="{ underline: isActive(vTo) }"
                             class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
                             {{ kTitle }}
@@ -65,14 +61,14 @@ watch(
                                 <!-- icon light -->
                                 <svg class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                                     v-show="colorMode.preference === 'dark'" xmlns="http://www.w3.org/2000/svg"
-                                    :size="appCfg.myConst.iconSizes.default" viewBox="0 0 24 24">
+                                    :size="appCfg.cfg.iconSizes.default" viewBox="0 0 24 24">
                                     <path fill="currentColor"
                                         d="m3.55 19.09l1.41 1.41l1.8-1.79l-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71l1.8 1.79l1.41-1.41l-1.79-1.8M20.45 5l-1.41-1.4l-1.8 1.79l1.42 1.42M13 1h-2v3h2M6.76 5.39L4.96 3.6L3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2" />
                                 </svg>
                                 <!-- icon dark -->
                                 <svg class="hover:text-gray-500 dark:hover:text-gray-900"
                                     v-show="colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg"
-                                    :size="appCfg.myConst.iconSizes.default" viewBox="0 0 24 24">
+                                    :size="appCfg.cfg.iconSizes.default" viewBox="0 0 24 24">
                                     <path fill="currentColor"
                                         d="M2 12a10 10 0 0 0 13 9.54a10 10 0 0 1 0-19.08A10 10 0 0 0 2 12" />
                                 </svg>
@@ -125,7 +121,7 @@ watch(
                         </button>
                     </div>
                     <nav class="flex flex-col space-y-4" aria-label="Mobile navigation">
-                        <NuxtLink v-for="(vTo, kTitle) in appCfg.myConst.layout.header.navItems" :key="vTo" :to="vTo"
+                        <NuxtLink v-for="(vTo, kTitle) in appCfg.cfg.layout.header.navItems" :key="vTo" :to="vTo"
                             @click="closeMobileMenu" :class="{ 'bg-gray-100 dark:bg-gray-700': isActive(vTo) }"
                             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             {{ kTitle }}
@@ -143,12 +139,13 @@ watch(
             </div>
         </main>
 
+        <!-- Footer -->
         <footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="text-center">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
                         © {{ new Date().getFullYear() }}
-                        {{ appCfg.myConst.layout.header.title }}. All rights reserved my
+                        {{ appCfg.cfg.layout.header.title }}. All rights reserved my
                         buttstock! I stole other people's code anyway! Or did I? Hmm...
                     </p>
                 </div>

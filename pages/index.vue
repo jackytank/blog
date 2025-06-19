@@ -6,7 +6,7 @@ useHead({
         {
             name: "description",
             content:
-                `Welcome to ${appCfg.myConst.layout.header.title} website, a place to share knowledge and insights on various topics.`,
+                `Welcome to ${appCfg.cfg.layout.header.title} website, a place to share knowledge and insights on various topics.`,
         },
     ],
 });
