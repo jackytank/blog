@@ -23,7 +23,7 @@ useHead({
             </p>
             <div class="mt-6">
                 <button class="btn-primary w-full text-gray-500 hover:text-blue-500 underline underline-offset-4">
-                    <NuxtLink to="/blogs">👉 Read now before it too late! 👈</NuxtLink>
+                    <NuxtLink to="/blogs">Read now before WW3 start!</NuxtLink>
                 </button>
             </div>
         </div>

@@ -35,7 +35,7 @@ watch(
         <!-- Header -->
         <header
             class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto px-2 sm:px-4 lg:px-6">
                 <div class="flex justify-between items-center h-16">
                     <!-- Logo/brand -->
                     <div class="flex-shrink-0">
@@ -46,7 +46,7 @@ watch(
                     </div>
 
                     <!-- Desktop Navigation -->
-                    <nav class="hidden md:flex space-x-8">
+                    <nav class="hidden md:flex space-x-8" aria-label="Primary navigation">
                         <NuxtLink v-for="(vTo, kTitle) in appCfg.myConst.layout.header.navItems" :key="vTo" :to="vTo"
                             :class="{ underline: isActive(vTo) }"
                             class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors">
@@ -63,7 +63,7 @@ watch(
                                 colorMode.preference === 'dark' ? 'light' : 'dark'
                                 " class="ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4">
                                 <!-- icon light -->
-                                <svg class="text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
+                                <svg class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                                     v-show="colorMode.preference === 'dark'" xmlns="http://www.w3.org/2000/svg"
                                     :size="appCfg.myConst.iconSizes.default" viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -87,7 +87,7 @@ watch(
 
                         <!-- Mobile menu button -->
                         <button @click="toggleMobileMenu"
-                            class="md-hidden p-2 rounded-lg text-gray-300 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
+                            class="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
                             <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -103,10 +103,42 @@ watch(
             </div>
         </header>
 
+        <!-- Mobile Menu Overlay -->
+        <div v-if="mobileMenuOpen" @click="closeMobileMenu"
+            class="fixed inset-0 bg-gray-100 dark:bg-gray-800 bg-opacity-5 z-40 md:hidden">
+        </div>
+
+        <!-- Mobile Menu -->
+        <Transition enter-active-class="transition-transform ease-in-out duration-300"
+            leave-active-class="transition-transform ease-in-out duration-300" enter-from-class="translate-x-full"
+            enter-to-class="translate-x-0" leave-from-class="translate-x-0" leave-to-class="translate-x-full">
+            <div v-if="mobileMenuOpen"
+                class="fixed inset-y-0 right-0 w-64 bg-white dark:bg-gray-800 shadow-lg z-50 md:hidden">
+                <div class="px-5 py-6">
+                    <div class="flex justify-end mb-4">
+                        <button @click="closeMobileMenu"
+                            class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <nav class="flex flex-col space-y-4" aria-label="Mobile navigation">
+                        <NuxtLink v-for="(vTo, kTitle) in appCfg.myConst.layout.header.navItems" :key="vTo" :to="vTo"
+                            @click="closeMobileMenu" :class="{ 'bg-gray-100 dark:bg-gray-700': isActive(vTo) }"
+                            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            {{ kTitle }}
+                        </NuxtLink>
+                    </nav>
+                </div>
+            </div>
+        </Transition>
+
         <!-- Main content -->
         <main class="flex-1">
             <div
-                class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 dark:text-gray-100 border-x border-gray-300 dark:border-gray-100">
+                class="min-h-screen max-w-4xl mx-auto px-2 sm:px-4 lg:px-6 py-8 dark:text-gray-100 border-x border-gray-300 dark:border-gray-100">
                 <slot />
             </div>
         </main>
