@@ -147,8 +147,7 @@ watch(
                 <div class="text-center">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">
                         © {{ new Date().getFullYear() }}
-                        {{ appCfg.cfg.layout.header.title }}. All rights reserved my
-                        buttstock! I stole other people's code anyway! Or did I? Hmm...
+                        {{ appCfg.cfg.layout.header.title }}. All rights reserved. Who cares? I stole other people's code anyway! Or did I? Hmm...
                     </p>
                 </div>
             </div>
