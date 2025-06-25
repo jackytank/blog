@@ -16,5 +16,8 @@ export default defineAppConfig({
         iconSizes: {
             default: '24'
         },
+        blog: {
+            descriptionTruncateThreshold: 150 // Add this line for description truncation
+        }
     }
 });
